@@ -1,0 +1,31 @@
+CREATE DATABASE db_contoh_struk;
+USE db_contoh_struk;
+
+CREATE TABLE Toko (
+    id_toko INT AUTO_INCREMENT PRIMARY KEY,
+    nama_toko VARCHAR(100) NOT NULL,
+    alamat TEXT,
+    no_telepon VARCHAR(50)
+);
+
+CREATE TABLE Transaksi (
+    no_transaksi VARCHAR(50) PRIMARY KEY,
+    id_toko INT,
+    tanggal_waktu DATETIME NOT NULL,
+    nama_kasir VARCHAR(50) NOT NULL,
+    pelanggan VARCHAR(50) DEFAULT 'UMUM/CASH',
+    total_bayar DECIMAL(15, 2) NOT NULL,
+    tunai DECIMAL(15, 2) NOT NULL,
+    kembalian DECIMAL(15, 2) NOT NULL,
+    FOREIGN KEY (id_toko) REFERENCES Toko(id_toko)
+);
+
+CREATE TABLE Detail_Transaksi (
+    id_detail INT AUTO_INCREMENT PRIMARY KEY,
+    no_transaksi VARCHAR(50),
+    nama_barang VARCHAR(100) NOT NULL,
+    kuantitas DECIMAL(10, 2) NOT NULL,
+    harga_satuan DECIMAL(15, 2) NOT NULL,
+    subtotal DECIMAL(15, 2) NOT NULL,
+    FOREIGN KEY (no_transaksi) REFERENCES Transaksi(no_transaksi)
+);

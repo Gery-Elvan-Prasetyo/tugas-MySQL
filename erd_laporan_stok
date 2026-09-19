@@ -1,0 +1,32 @@
+CREATE DATABASE db_laporan_stok;
+USE db_laporan_stok;
+
+CREATE TABLE Perusahaan (
+    id_perusahaan INT AUTO_INCREMENT PRIMARY KEY,
+    nama_perusahaan VARCHAR(100) NOT NULL,
+    alamat TEXT,
+    no_telepon VARCHAR(20),
+    email VARCHAR(50),
+    website VARCHAR(50)
+);
+
+CREATE TABLE Produk (
+    kode_produk VARCHAR(20) PRIMARY KEY,
+    nama_produk VARCHAR(100) NOT NULL,
+    harga_satuan DECIMAL(15, 2) NOT NULL
+);
+
+CREATE TABLE Stok_Bulanan (
+    id_stok INT AUTO_INCREMENT PRIMARY KEY,
+    id_perusahaan INT,
+    kode_produk VARCHAR(20),
+    periode_bulan VARCHAR(20),
+    tahun YEAR,
+    jumlah_awal INT DEFAULT 0,
+    pemasukan INT DEFAULT 0,
+    pengeluaran INT DEFAULT 0,
+    jumlah_akhir INT DEFAULT 0,
+    nilai_stok_akhir DECIMAL(15, 2) DEFAULT 0.00,
+    FOREIGN KEY (id_perusahaan) REFERENCES Perusahaan(id_perusahaan),
+    FOREIGN KEY (kode_produk) REFERENCES Produk(kode_produk)
+);
