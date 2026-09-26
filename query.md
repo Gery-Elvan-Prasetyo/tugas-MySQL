@@ -1,21 +1,5 @@
-QUERY JOIN 
-SELECT 
-    t.nama_toko AS 'Nama Toko',
-    p.no_penjualan AS 'No Nota',
-    p.tanggal AS 'Waktu Transaksi',
-    k.nama AS 'Nama Kasir',
-    pr.nama_barang AS 'Item Senjata/Amunisi',
-    dp.harga_satuan AS 'Harga Satuan',
-    dp.QTY AS 'Jumlah Beli',
-    dp.subtotal AS 'Subtotal Item',
-    p.total_harga AS 'TOTAL AKHIR NOTA',
-    p.metode_bayar AS 'Metode Pembayaran
-FROM detail_penjualan dp
-JOIN penjualan p ON dp.no_penjualan = p.no_penjualan
-JOIN produk pr ON dp.id_barang = pr.id_barang
-JOIN karyawan k ON p.id_pegawai = k.id_pegawai
-JOIN toko t ON p.id_toko = t.id_toko
-WHERE p.no_penjualan = 'TX-001';
+## QUERY JOIN 
+SELECT t.nama_toko AS 'Nama Toko', p.no_penjualan AS 'No Nota', p.tanggal AS 'Waktu Transaksi', k.nama AS 'Nama Kasir', pr.nama_barang AS 'Item Senjata/Amunisi', dp.harga_satuan AS 'Harga Satuan', dp.QTY AS 'Jumlah Beli', dp.subtotal AS 'Subtotal Item', p.total_harga AS 'TOTAL AKHIR NOTA', p.metode_bayar AS 'Metode Pembayaran' FROM detail_penjualan dp JOIN penjualan p ON dp.no_penjualan = p.no_penjualan JOIN produk pr ON dp.id_barang = pr.id_barang JOIN karyawan k ON p.id_pegawai = k.id_pegawai JOIN toko t ON p.id_toko = t.id_toko WHERE p.no_penjualan = 'TX-001' ;
 
 ## 4. inner join
 SELECT 
