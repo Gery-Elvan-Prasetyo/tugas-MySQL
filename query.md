@@ -17,7 +17,7 @@ JOIN karyawan k ON p.id_pegawai = k.id_pegawai
 JOIN toko t ON p.id_toko = t.id_toko
 WHERE p.no_penjualan = 'TX-001';
 
-# 4. inner join
+## 4. inner join
 SELECT 
     p.id_barang,
     p.nama_barang,
@@ -26,7 +26,7 @@ SELECT
 FROM produk p
 INNER JOIN detail_penjualan dp ON p.id_barang = dp.id_barang;
 
-# 5. left join
+## 5. left join
 SELECT 
     p.id_barang,
     p.nama_barang,
@@ -36,7 +36,7 @@ FROM produk p
 LEFT JOIN detail_penjualan dp ON p.id_barang = dp.id_barang;FROM barang_produk p
 LEFT JOIN detail_penjualan dp ON p.Kode_Barang = dp.Kode_Barang;
 
-# 6. right join
+## 6. right join
 SELECT 
     p.id_barang,
     p.nama_barang,
@@ -45,7 +45,7 @@ SELECT
 FROM produk p
 RIGHT JOIN detail_penjualan dp ON p.id_barang = dp.id_barang;
 
-#cek stok
+## cek stok
 SELECT 
     pr.id_barang AS 'Kode Barang',
     pr.nama_barang AS 'Nama Senjata/Perlengkapan',
