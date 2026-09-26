@@ -9,16 +9,15 @@ SELECT
     dp.QTY AS 'Jumlah Beli',
     dp.subtotal AS 'Subtotal Item',
     p.total_harga AS 'TOTAL AKHIR NOTA',
-    p.metode_bayar AS 'Metode Pembayaran'  -- dari atas sampai sini itu karna mau sesuaiin                                
-                                                                                                  sama struk
+    p.metode_bayar AS 'Metode Pembayaran
 FROM detail_penjualan dp
 JOIN penjualan p ON dp.no_penjualan = p.no_penjualan
 JOIN produk pr ON dp.id_barang = pr.id_barang
 JOIN karyawan k ON p.id_pegawai = k.id_pegawai
-JOIN toko t ON p.id_toko = t.id_toko  --Cuma 4 karna produk dan dan stok gaperlu di display
-WHERE p.no_penjualan = 'TX-001';   -- nota dari TX-001 – TX-010
+JOIN toko t ON p.id_toko = t.id_toko
+WHERE p.no_penjualan = 'TX-001';
 
-4. inner join
+# 4. inner join
 SELECT 
     p.id_barang,
     p.nama_barang,
@@ -27,7 +26,7 @@ SELECT
 FROM produk p
 INNER JOIN detail_penjualan dp ON p.id_barang = dp.id_barang;
 
-5. left join
+# 5. left join
 SELECT 
     p.id_barang,
     p.nama_barang,
@@ -37,7 +36,7 @@ FROM produk p
 LEFT JOIN detail_penjualan dp ON p.id_barang = dp.id_barang;FROM barang_produk p
 LEFT JOIN detail_penjualan dp ON p.Kode_Barang = dp.Kode_Barang;
 
-6. right join
+# 6. right join
 SELECT 
     p.id_barang,
     p.nama_barang,
@@ -46,4 +45,12 @@ SELECT
 FROM produk p
 RIGHT JOIN detail_penjualan dp ON p.id_barang = dp.id_barang;
 
-
+#cek stok
+SELECT 
+    pr.id_barang AS 'Kode Barang',
+    pr.nama_barang AS 'Nama Senjata/Perlengkapan',
+    s.stok_awal AS 'Stok Awal Gudang',
+    s.jumlah_keluar AS 'Total Terjual',
+    (s.stok_awal + s.jumlah_masuk - s.jumlah_keluar) AS 'SISA STOK DISPLAY'
+FROM produk pr
+JOIN stok s ON pr.id_barang = s.id_barang;
