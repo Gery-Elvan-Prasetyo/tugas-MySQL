@@ -1,4 +1,4 @@
-#STRUK 
+# STRUK 
 USE armory_pplg;
 
 SELECT 
@@ -26,7 +26,7 @@ LEFT JOIN pelanggan pl ON p.id_pelanggan = pl.id_pelanggan
 ORDER BY p.no_penjualan ASC;
 
 
-#INNER JOIN
+# INNER JOIN
 USE armory_pplg;
 
 SELECT 
@@ -38,7 +38,7 @@ SELECT
 FROM penjualan p
 INNER JOIN pelanggan pl ON p.id_pelanggan = pl.id_pelanggan;
 
-#LEFT JOIN
+# LEFT JOIN
 USE armory_pplg;
 
 SELECT 
@@ -50,7 +50,7 @@ SELECT
 FROM penjualan p
 LEFT JOIN pelanggan pl ON p.id_pelanggan = pl.id_pelanggan;
 
-#RIGHT JOIN
+# RIGHT JOIN
 USE armory_pplg;
 
 SELECT 
@@ -62,7 +62,7 @@ SELECT
 FROM penjualan p
 RIGHT JOIN pelanggan pl ON p.id_pelanggan = pl.id_pelanggan;
 
-#STOK
+# STOK
 SELECT 
     pr.id_barang AS 'Kode Barang',
     pr.nama_barang AS 'Nama Senjata/Perlengkapan',
@@ -75,7 +75,7 @@ SELECT
 FROM produk pr
 JOIN stok s ON pr.id_barang = s.id_barang;
 
-#STOK + TRACKING
+# STOK + TRACKING
 USE armory_pplg;
 
 SELECT 
